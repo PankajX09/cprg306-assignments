@@ -6,7 +6,7 @@ export default function StudentInfo() {
       <p>Pankaj Panchal</p>
       <p>
         <Link href="https://github.com/PankajX09/cprg306-assignments">
-          Pnakaj's GitHub
+          Pankaj&apos;s GitHub
         </Link>
       </p>
     </div>

@@ -7,7 +7,7 @@ export default function Page() {
       <p>
         <Link href="/week-2">Go to Week 2 Page</Link>
       </p>
-      <p>Additional information: This site contains all my weekly assignments.</p>
+      <p>Group 1: Pankaj Panchal, Alex Jamal, Kevin Kim</p>
     </main>
   );
 }

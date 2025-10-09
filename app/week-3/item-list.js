@@ -1,4 +1,3 @@
-// ItemList.js
 import Item from './items';
 
 const items = [

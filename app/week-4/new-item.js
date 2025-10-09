@@ -30,7 +30,7 @@ export default function NewItem() {
           }`}>
           -
         </button>
-        <span className="text-xl font-bold text-black">{quantity}</span> //displays the current quantity
+        <span className="text-xl font-bold text-black">{quantity}</span>
         <button
           onClick={increment} // calls the increment function
           className={`px-4 py-2 text-black rounded ${

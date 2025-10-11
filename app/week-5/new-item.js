@@ -47,7 +47,7 @@ export default function NewItem() {
     >
       {/* Name Field */}
       <div className="space-y-2">
-        <label htmlFor="name" className="block text-sm font-medium text-black">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-800">
           Item Name
         </label>
         <input
@@ -63,7 +63,7 @@ export default function NewItem() {
 
       {/* Quantity Field */}
       <div className="space-y-2">
-        <label htmlFor="quantity" className="block text-sm font-medium text-black">
+        <label htmlFor="quantity" className="block text-sm font-medium text-gray-800">
           Quantity
         </label>
         <input
@@ -80,7 +80,7 @@ export default function NewItem() {
 
       {/* Category Field */}
       <div className="space-y-2">
-        <label htmlFor="category" className="block text-sm font-medium text-black">
+        <label htmlFor="category" className="block text-sm font-medium text-gray-800">
           Category
         </label>
         <select

@@ -1,63 +1,109 @@
-'use client'
-
-import { useState } from 'react';
+"use client";
+import { useState } from "react";
 
 export default function NewItem() {
-    const [name, setName] = useState("");
-    const [quantity, setQuantity] = useState(1);
-    const [category, setCategory] = useState("produce");
+  // State variables
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [category, setCategory] = useState("produce");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const item = {
-            name: name,
-            quantity: quantity,
-            category: category,
-        };
+  // Categories array
+  const categories = [
+    { value: "produce", label: "Produce" },
+    { value: "dairy", label: "Dairy" },
+    { value: "bakery", label: "Bakery" },
+    { value: "meat", label: "Meat" },
+    { value: "frozen", label: "Frozen Foods" },
+    { value: "canned", label: "Canned Goods" },
+    { value: "dry", label: "Dry Goods" },
+    { value: "beverages", label: "Beverages" },
+    { value: "snacks", label: "Snacks" },
+    { value: "household", label: "Household" },
+    { value: "other", label: "Other" }
+  ];
 
-        console.log("New Item:", item);
-        alert("Added item: \nName: ${name}\nQuantity: ${quantity}\nCategory: ${category}");
-
-        setName("");
-        setQuantity(1);
-        setCategory("produce");
+  // Form submission handler
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    const item = {
+      name,
+      quantity,
+      category,
     };
 
-    return(
-        <form
-            onSubmit = {handleSubmit}
-            className = "max-w-md mx-auto bg-white p-6 rounded-2xl shadow-md space-y-4 mt-8"
+    console.log("Item submitted:", item);
+    alert(`Item Added!\nName: ${name}\nQuantity: ${quantity}\nCategory: ${category}`);
+    
+    setName("");
+    setQuantity(1);
+    setCategory("produce");
+  };
+
+  return (
+    <form 
+      onSubmit={handleSubmit}
+      className="bg-white p-6 rounded-lg shadow-md space-y-6"
+    >
+      {/* Name Field */}
+      <div className="space-y-2">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          Item Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder="Enter item name"
+        />
+      </div>
+
+      {/* Quantity Field */}
+      <div className="space-y-2">
+        <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">
+          Quantity
+        </label>
+        <input
+          type="number"
+          id="quantity"
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
+          min="1"
+          max="99"
+          required
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
+
+      {/* Category Field */}
+      <div className="space-y-2">
+        <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+          Category
+        </label>
+        <select
+          id="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
-            <h2 className = "text-2xl font-semibold text-gray-800 text-center" >
-                Add a new item
-            </h2>
-            <div>
-                <label className = "block text-gray-700 mb-1">Item name</label>
-                <input
-                    type = "text"
-                    value = {name}
-                    onChange = {(e) => setName(e.target.value)}
-                    required
-                    placeholder = "Enter item name"
-                    className = "w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
+          {categories.map((cat) => (
+            <option key={cat.value} value={cat.value}>
+              {cat.label}
+            </option>
+          ))}
+        </select>
+      </div>
 
-                    />
-            </div>
-
-            <div>
-                <label className = "block text-gray-700 mb-1">Quantity</label>
-                <input
-                    type = "number"
-                    min = "1"
-                    value = {quantity}
-                    onChange = {(e) => setQuantity(e.target.value)}
-                    required
-                    className = "w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                />
-            </div>
-
-            {/* I stopped here, add new code here and then delete the comment - Kevin */}
-
-        </form>
-    )
+      {/* Submit Button */}
+      <button
+        type="submit"
+        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 font-medium"
+      >
+        Add Item
+      </button>
+    </form>
+  );
 }

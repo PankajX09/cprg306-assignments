@@ -47,7 +47,7 @@ export default function NewItem() {
     >
       {/* Name Field */}
       <div className="space-y-2">
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-950">
           Item Name
         </label>
         <input

@@ -6,7 +6,6 @@ export default function ItemList() {
   const [sortBy, setSortBy] = useState("name");
   const [groupByCategory, setGroupByCategory] = useState(false);
 
-  // Sort items based on sortBy
   const sortedItems = [...itemsData].sort((a, b) => {
     if (sortBy === "name") {
       return a.name.localeCompare(b.name);
@@ -16,7 +15,6 @@ export default function ItemList() {
     return 0;
   });
 
-  // Group items by category for the group view
   const groupedItems = sortedItems.reduce((acc, item) => {
     const category = item.category;
     if (!acc[category]) {
@@ -26,12 +24,10 @@ export default function ItemList() {
     return acc;
   }, {});
 
-  // Sort categories alphabetically
   const sortedCategories = Object.keys(groupedItems).sort();
 
   return (
     <div>
-      {/* Sort/Group Buttons - EXACTLY like screenshot */}
       <div className="flex gap-2 mb-8">
         <button
           onClick={() => {
@@ -73,10 +69,8 @@ export default function ItemList() {
         </button>
       </div>
 
-      {/* Items List */}
       <div>
         {groupByCategory ? (
-          // Grouped View - EXACTLY like screenshot
           <div className="space-y-6">
             {sortedCategories.map((category) => (
               <div key={category}>
@@ -100,7 +94,6 @@ export default function ItemList() {
             ))}
           </div>
         ) : (
-          // Regular Sorted View
           <ul className="space-y-3">
             {sortedItems.map((item) => (
               <li key={item.id} className="bg-gray-900 rounded-lg border border-gray-700 p-4">

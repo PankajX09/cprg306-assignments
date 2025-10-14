@@ -6,6 +6,14 @@ export default function NewItem() {
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
 
+  const increment = () => {
+    setQuantity(prev => (prev < 20 ? prev + 1 : prev));
+  };
+
+  const decrement = () => {
+    setQuantity(prev => (prev > 1 ? prev - 1 : prev));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -40,16 +48,29 @@ export default function NewItem() {
           </div>
 
           <div className="flex space-x-3">
+            {/* Quantity with increment/decrement buttons */}
             <div className="flex-1">
-              <input
-                type="number"
-                min="1"
-                max="99"
-                value={quantity}
-                onChange={(e) => setQuantity(Number(e.target.value))}
-                required
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              />
+              <div className="flex items-center justify-between border border-gray-300 rounded-lg p-1">
+                <button
+                  type="button"
+                  onClick={decrement}
+                  className={`px-4 py-2 rounded ${
+                    quantity === 1 ? 'bg-red-400' : 'bg-blue-500 hover:bg-blue-600 text-white'
+                  }`}
+                >
+                  -
+                </button>
+                <span className="text-xl font-bold mx-4">{quantity}</span>
+                <button
+                  type="button"
+                  onClick={increment}
+                  className={`px-4 py-2 rounded ${
+                    quantity === 20 ? 'bg-red-400' : 'bg-blue-500 hover:bg-blue-600 text-white'
+                  }`}
+                >
+                  +
+                </button>
+              </div>
             </div>
 
             <div className="flex-1">

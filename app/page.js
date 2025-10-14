@@ -13,6 +13,8 @@ export default function Page() {
         <br></br>
         <Link href="/week-5">Go to Week 5 Page</Link>
         <br></br>
+        <Link href="/week-6">Go to Week 6 Page</Link>
+        <br></br>
       </p>
       <p>Group 1: Pankaj Panchal, Alex Jamal, Kevin Kim</p>
     </main>

@@ -2,27 +2,10 @@
 import { useState } from "react";
 
 export default function NewItem() {
-  // State variables
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
 
-  // Categories array
-  const categories = [
-    { value: "produce", label: "Produce" },
-    { value: "dairy", label: "Dairy" },
-    { value: "bakery", label: "Bakery" },
-    { value: "meat", label: "Meat" },
-    { value: "frozen", label: "Frozen Foods" },
-    { value: "canned", label: "Canned Goods" },
-    { value: "dry", label: "Dry Goods" },
-    { value: "beverages", label: "Beverages" },
-    { value: "snacks", label: "Snacks" },
-    { value: "household", label: "Household" },
-    { value: "other", label: "Other" }
-  ];
-
-  // Form submission handler
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -32,8 +15,8 @@ export default function NewItem() {
       category,
     };
 
-    console.log("Item submitted:", item);
-    alert(`Item Added!\nName: ${name}\nQuantity: ${quantity}\nCategory: ${category}`);
+    console.log(item);
+    alert(`Added item: ${name}, Quantity: ${quantity}, Category: ${category}`);
     
     setName("");
     setQuantity(1);
@@ -41,69 +24,64 @@ export default function NewItem() {
   };
 
   return (
-    <form 
-      onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-lg shadow-md space-y-6"
-    >
-      {/* Name Field */}
-      <div className="space-y-2">
-        <label htmlFor="name" className="block text-sm font-medium text-gray-800">
-          Item Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Enter item name"
-        />
-      </div>
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-6 text-center">Add Item</h1>
+        
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <input
+              type="text"
+              placeholder="Item name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+            />
+          </div>
 
-      {/* Quantity Field */}
-      <div className="space-y-2">
-        <label htmlFor="quantity" className="block text-sm font-medium text-gray-800">
-          Quantity
-        </label>
-        <input
-          type="number"
-          id="quantity"
-          value={quantity}
-          onChange={(e) => setQuantity(Number(e.target.value))}
-          min="1"
-          max="99"
-          required
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        />
-      </div>
+          <div className="flex space-x-4">
+            <div className="flex-1">
+              <input
+                type="number"
+                min="1"
+                max="99"
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+                required
+                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
 
-      {/* Category Field */}
-      <div className="space-y-2">
-        <label htmlFor="category" className="block text-sm font-medium text-gray-800">
-          Category
-        </label>
-        <select
-          id="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        >
-          {categories.map((cat) => (
-            <option key={cat.value} value={cat.value}>
-              {cat.label}
-            </option>
-          ))}
-        </select>
-      </div>
+            <div className="flex-1">
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+              >
+                <option value="produce">Produce</option>
+                <option value="dairy">Dairy</option>
+                <option value="bakery">Bakery</option>
+                <option value="meat">Meat</option>
+                <option value="frozen">Frozen Foods</option>
+                <option value="canned">Canned Goods</option>
+                <option value="dry">Dry Goods</option>
+                <option value="beverages">Beverages</option>
+                <option value="snacks">Snacks</option>
+                <option value="household">Household</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 font-medium"
-      >
-        Add Item
-      </button>
-    </form>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            +
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }

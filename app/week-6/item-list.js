@@ -81,15 +81,15 @@ export default function ItemList() {
                   {groupedItems[category]
                     .sort((a, b) => a.name.localeCompare(b.name))
                     .map((item) => (
-                      <li key={item.id} className="bg-white rounded p-4 border border-gray-700">
+                      <li key={item.id} className="bg-white rounded p-4 border border-white">
                         <h3 className="font-bold text-black text-lg mb-1">{item.name}</h3>
-                        <p className="text-gray-400">
+                        <p className="text-black">
                           Buy {item.quantity} in {item.category}
                         </p>
                       </li>
                     ))}
                 </ul>
-                <hr className="border-gray-700 my-4" />
+                <hr className="border-white my-4" />
               </div>
             ))}
           </div>

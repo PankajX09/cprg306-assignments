@@ -24,11 +24,11 @@ export default function NewItem() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center min-h-screen bg-slate-900 p-4">
       <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center">Add Item</h1>
         
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">s
           <div>
             <input
               type="text"
@@ -36,11 +36,11 @@ export default function NewItem() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
             />
           </div>
 
-          <div className="flex space-x-4">
+          <div className="flex space-x-3">
             <div className="flex-1">
               <input
                 type="number"
@@ -49,7 +49,7 @@ export default function NewItem() {
                 value={quantity}
                 onChange={(e) => setQuantity(Number(e.target.value))}
                 required
-                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               />
             </div>
 
@@ -57,7 +57,7 @@ export default function NewItem() {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               >
                 <option value="produce">Produce</option>
                 <option value="dairy">Dairy</option>
@@ -76,7 +76,7 @@ export default function NewItem() {
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-lg font-semibold"
           >
             +
           </button>

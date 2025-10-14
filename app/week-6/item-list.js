@@ -36,7 +36,7 @@ export default function ItemList() {
           }}
           className={`px-4 py-2 rounded font-medium ${
             sortBy === "name" && !groupByCategory
-              ? "bg-blue-600 text-white"
+              ? "bg-amber-400 text-white"
               : "bg-gray-800 text-white hover:bg-gray-700"
           }`}
         >
@@ -50,7 +50,7 @@ export default function ItemList() {
           }}
           className={`px-4 py-2 rounded font-medium ${
             sortBy === "category" && !groupByCategory
-              ? "bg-blue-600 text-white"
+              ? "bg-amber-400 text-white"
               : "bg-gray-800 text-white hover:bg-gray-700"
           }`}
         >
@@ -61,7 +61,7 @@ export default function ItemList() {
           onClick={() => setGroupByCategory(true)}
           className={`px-4 py-2 rounded font-medium ${
             groupByCategory
-              ? "bg-blue-600 text-white"
+              ? "bg-amber-400 text-white"
               : "bg-gray-800 text-white hover:bg-gray-700"
           }`}
         >

@@ -82,7 +82,7 @@ export default function ItemList() {
                     .sort((a, b) => a.name.localeCompare(b.name))
                     .map((item) => (
                       <li key={item.id} className="bg-white rounded p-4 border border-gray-700">
-                        <h3 className="font-bold text-white text-lg mb-1">{item.name}</h3>
+                        <h3 className="font-bold text-black text-lg mb-1">{item.name}</h3>
                         <p className="text-gray-400">
                           Buy {item.quantity} in {item.category}
                         </p>

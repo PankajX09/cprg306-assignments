@@ -42,13 +42,11 @@ export default function NewItem() {
               placeholder="Item name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="flex space-x-3">
-            {/* Quantity with increment/decrement buttons */}
             <div className="flex-1">
               <div className="flex items-center justify-between border border-gray-300 rounded-lg p-1">
                 <button

@@ -31,18 +31,18 @@ export default function ItemList() {
   const sortedCategories = Object.keys(groupedItems).sort();
 
   return (
-    <div className="max-w-4xl mx-auto">
-      {/* Sort/Group Buttons */}
-      <div className="flex gap-4 mb-6">
+    <div>
+      {/* Sort/Group Buttons - EXACTLY like screenshot */}
+      <div className="flex gap-2 mb-6">
         <button
           onClick={() => {
             setSortBy("name");
             setGroupByCategory(false);
           }}
-          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+          className={`px-4 py-2 rounded font-medium ${
             sortBy === "name" && !groupByCategory
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              ? "bg-orange-500 text-white"
+              : "bg-orange-100 text-orange-800 hover:bg-orange-200"
           }`}
         >
           Sort by Name
@@ -53,10 +53,10 @@ export default function ItemList() {
             setSortBy("category");
             setGroupByCategory(false);
           }}
-          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+          className={`px-4 py-2 rounded font-medium ${
             sortBy === "category" && !groupByCategory
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              ? "bg-orange-500 text-white"
+              : "bg-orange-100 text-orange-800 hover:bg-orange-200"
           }`}
         >
           Sort by Category
@@ -64,10 +64,10 @@ export default function ItemList() {
         
         <button
           onClick={() => setGroupByCategory(true)}
-          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+          className={`px-4 py-2 rounded font-medium ${
             groupByCategory
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              ? "bg-orange-500 text-white"
+              : "bg-orange-100 text-orange-800 hover:bg-orange-200"
           }`}
         >
           Group by Category
@@ -77,20 +77,20 @@ export default function ItemList() {
       {/* Items List */}
       <div>
         {groupByCategory ? (
-          // Grouped View
-          <div className="space-y-6">
+          // Grouped View - EXACTLY like screenshot
+          <div className="space-y-4">
             {sortedCategories.map((category) => (
-              <div key={category} className="bg-gray-50 rounded-lg p-4">
-                <h2 className="text-xl font-bold text-gray-800 capitalize mb-3">
+              <div key={category}>
+                <h2 className="text-xl font-bold text-white capitalize mb-2">
                   {category}
                 </h2>
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-4">
                   {groupedItems[category]
                     .sort((a, b) => a.name.localeCompare(b.name))
                     .map((item) => (
-                      <li key={item.id} className="bg-white rounded-lg p-3 border border-gray-200">
-                        <h3 className="font-semibold text-gray-800 capitalize">{item.name}</h3>
-                        <p className="text-gray-600 text-sm">
+                      <li key={item.id} className="bg-slate-800 rounded p-3 border border-slate-700">
+                        <h3 className="font-semibold text-white capitalize">{item.name}</h3>
+                        <p className="text-slate-400 text-sm">
                           Buy {item.quantity} in {item.category}
                         </p>
                       </li>
@@ -100,7 +100,7 @@ export default function ItemList() {
             ))}
           </div>
         ) : (
-          // Regular Sorted View
+          // Regular Sorted View - EXACTLY like screenshot
           <ul className="space-y-3">
             {sortedItems.map((item) => (
               <Item

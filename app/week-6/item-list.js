@@ -28,7 +28,7 @@ export default function ItemList() {
 
   return (
     <div>
-      <div className="flex gap-2 mb-8">
+      <div className="flex gap-3 mb-6">
         <button
           onClick={() => {
             setSortBy("name");
@@ -36,11 +36,12 @@ export default function ItemList() {
           }}
           className={`px-4 py-2 rounded font-medium ${
             sortBy === "name" && !groupByCategory
-              ? "bg-amber-400 text-white"
-              : "bg-gray-800 text-white hover:bg-gray-700"
+              ? "px-3 py-1 rounded text-sm font-large bg-amber-400 text-white"
+              : "px-3 py-1 rounded text-sm font-large text-white hover:text-white bg-gray-500"
           }`}
         >
-          Sort by Name
+          Sort by
+          <br></br>Name
         </button>
         
         <button
@@ -50,22 +51,24 @@ export default function ItemList() {
           }}
           className={`px-4 py-2 rounded font-medium ${
             sortBy === "category" && !groupByCategory
-              ? "bg-amber-400 text-white"
-              : "bg-gray-800 text-white hover:bg-gray-700"
+              ? "px-3 py-1 rounded text-sm font-medium bg-amber-400 text-white"
+              : "px-3 py-1 rounded text-sm font-medium text-white hover:text-white bg-gray-500"
           }`}
         >
-          Sort by Category
+          Sort by 
+          <br></br>Category
         </button>
         
         <button
           onClick={() => setGroupByCategory(true)}
           className={`px-4 py-2 rounded font-medium ${
             groupByCategory
-              ? "bg-amber-400 text-white"
-              : "bg-gray-800 text-white hover:bg-gray-700"
+              ? "px-3 py-1 rounded text-sm font-medium bg-amber-400 text-white"
+              : "px-3 py-1 rounded text-sm font-medium text-white hover:text-white bg-gray-500"
           }`}
         >
-          Group by Category
+          Group by 
+          <br></br>Category
         </button>
       </div>
 
@@ -74,7 +77,7 @@ export default function ItemList() {
           <div className="space-y-6">
             {sortedCategories.map((category) => (
               <div key={category}>
-                <h2 className="text-xl font-bold text-white mb-3 capitalize">
+                <h2 className="text-lg font-semibold text-white mb-2 capitalize">
                   {category}
                 </h2>
                 <ul className="space-y-3 mb-6">

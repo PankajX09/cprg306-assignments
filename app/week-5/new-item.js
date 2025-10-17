@@ -42,7 +42,7 @@ export default function NewItem() {
               placeholder="Item name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-black"
             />
           </div>
 
@@ -53,17 +53,17 @@ export default function NewItem() {
                   type="button"
                   onClick={decrement}
                   className={`px-4 py-2 rounded ${
-                    quantity === 1 ? 'bg-red-400' : 'bg-blue-500 hover:bg-blue-600 text-white'
+                    quantity === 1 ? 'bg-red-400' : 'bg-blue-500 hover:bg-blue-600 text-black'
                   }`}
                 >
                   -
                 </button>
-                <span className="text-xl font-bold mx-4">{quantity}</span>
+                <span className="text-xl font-bold mx-4 text-black">{quantity}</span>
                 <button
                   type="button"
                   onClick={increment}
                   className={`px-4 py-2 rounded ${
-                    quantity === 20 ? 'bg-red-400' : 'bg-blue-500 hover:bg-blue-600 text-white'
+                    quantity === 20 ? 'bg-red-400' : 'bg-blue-500 hover:bg-blue-600 text-black'
                   }`}
                 >
                   +
@@ -75,7 +75,7 @@ export default function NewItem() {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-black"
               >
                 <option value="produce">Produce</option>
                 <option value="dairy">Dairy</option>
@@ -94,7 +94,7 @@ export default function NewItem() {
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-lg font-semibold"
+            className="w-full bg-blue-500 text-black p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-lg font-semibold"
           >
             Add Item
           </button>

@@ -15,6 +15,8 @@ export default function Page() {
         <br />
         <Link href="/week-6">Go to Week 6 Page</Link>
         <br />
+        <Link href="/week-7">Go to Week 7 Page</Link>
+        <br />
       </div>
       <p>Group 1: Pankaj Panchal, Alex Jamal, Kevin Kim</p>
     </main>

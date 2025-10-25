@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
@@ -18,13 +18,18 @@ export default function NewItem() {
     event.preventDefault();
     
     const item = {
-      name,
-      quantity,
-      category,
-    };
-
-    console.log(item);
-    alert(`Added item: ${name}, Quantity: ${quantity}, Category: ${category}`);
+            id: (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID() : Math.random().toString(36).slice(2, 9),
+            name,
+            quantity,
+            category,
+          };
+      
+          // call parent handler
+          if (typeof onAddItem === "function") {
+            onAddItem(item);
+          } else {
+            console.warn("onAddItem prop is missing or not a function", item);
+          }
     
     setName("");
     setQuantity(1);
